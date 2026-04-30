@@ -18,7 +18,7 @@ async def listar_libros():
 # 2. GET - Obtener un libro por ID (usando Path)
 @app.get("/libros/{id}")
 async def obtener_libro(
-    id: int = Path(gt=0, description="El ID del libro debe ser mayor a 0")
+    id: int = Path(gt=0, description="El ID del libro debe ser mayor a 0") #"Greater Than" (Mayor que)
 ):
     for libro in libros:
         if libro["id"] == id:
@@ -29,7 +29,7 @@ async def obtener_libro(
 @app.post("/libros")
 async def crear_libro(
     id: int = Body(gt=0),
-    titulo: str = Body(min_length=1, max_length=100),
+    titulo: str = Body(min_length=1, max_length=100), #Evita que te manden un título vacío y pone un límite.
     autor: str = Body(min_length=3),
     paginas: int = Body(gt=0)
 ):
