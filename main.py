@@ -1,9 +1,6 @@
 from fastapi import FastAPI, Body, Path, Query
 
 app = FastAPI()
-@app.get("/")
-async def home():
-    return {"mensaje": "Bienvenido a la Gestión de Biblioteca Digital", "ver_libros": "/libros", "documentacion": "/docs"}
 
 
 # Simulación de Base de Datos
